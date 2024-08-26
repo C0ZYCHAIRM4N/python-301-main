@@ -4,6 +4,7 @@
 # If you run into encoding/decoding errors, you're experiencing something
 # very common. head over to StackOverflow and find a solution!
 import requests
+
 url = 'https://codingnomads.co/'
 response = requests.get(url)
 print(response.text)
