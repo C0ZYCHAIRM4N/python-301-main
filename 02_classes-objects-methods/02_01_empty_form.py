@@ -17,6 +17,7 @@ class ApplicationForm:
         self.address = address
 
 # Instantiate objects from the ApplicationForm class
+
 form1 = ApplicationForm("John Doe", 25, "123 Main St")
 form2 = ApplicationForm("Jane Smith", 30, "456 Elm St")
 form3 = ApplicationForm("Bob Johnson", 40, "789 Oak St")
