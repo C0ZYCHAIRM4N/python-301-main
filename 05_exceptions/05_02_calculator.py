@@ -16,7 +16,10 @@ try:
 except ValueError:
     print("you didn't enter a number!")
 except ZeroDivisionError:
-    print("Error: Division by zero is not allowed.")
+    print("division by 0")
+except:
+    print("remain calm")
+    
 
 
 
