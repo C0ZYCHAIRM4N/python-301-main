@@ -5,3 +5,16 @@
 # only if neither of them applies.
 
 file_name = 'integers.txt'
+try:
+    file_in = open(r"C:\Users\speng\Downloads\python-301-main\python-301-main\05_exceptions\integers.txt", 'r')
+    first_number = file_in.readline().strip()
+    first_number = int(first_number)
+    calculation = first_number + 2
+    print(calculation)
+except IOError as e:
+    print("IOError occured")
+except ValueError as e:
+    print("value error") 
+
+    
+
