@@ -9,25 +9,31 @@ import math
 
 
 class Circle():
+    """models a circle object"""
     def __init__ (self, radius):
         self.radius = radius
 
+    def __area__ (self):
+        return  
+
     def circumference(self):
+        """calculates the circumference of a circle object"""
         return math.pi * self.radius ** 2
 
-
-    
-        
 class Rectangle():
+    """models a rectangle object"""
     def __init__ (self, length, width):
         self.length = length
         self.width = width
 
     def area(self):
-        return self.length * self.width
+        """Calculates the area of a rectangle object"""
+        area = self.length * self.width
+        print(area)
+
 
     def perimeter(self):
-        return 2 * self.length + 2 * self.width
+        
 
 rectangle = Rectangle(3, 4)
 

@@ -33,8 +33,8 @@ class Ingredient:
         return f"Ingredient(name={self.name}, amount={self.amount})"
 
 
-if __name__ == '__main__':
-    c = Ingredient("carrot", 5)
-    p = Ingredient("pea", 4)
-    s = c + p
-    print(s)
+c = Ingredient("carrot", 5)
+p = Ingredient("pea", 4)
+s = c.__add__(p)
+print(s)  # OUTPUT: carrotpea (1)
+
