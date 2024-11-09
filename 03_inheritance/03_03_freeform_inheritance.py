@@ -30,36 +30,36 @@ class Magic:
     def __str__(self):
         return f"Magic(name={self.name}, damage={self.damage}, mana_cost={self.mana_cost})"
 
-    class FireMagic(Magic):
-        def __init__(self, name, damage, mana_cost, burn_duration):
-            super().__init__(name, damage, mana_cost)
-            self.burn_duration = burn_duration
+class FireMagic(Magic):
+    def __init__(self, name, damage, mana_cost, burn_duration):
+        super().__init__(name, damage, mana_cost)
+        self.burn_duration = burn_duration
 
-        def cast(self, target, caster):
-            super().cast(target, caster)
-            if caster.mana >= self.mana_cost:
+    def cast(self, target, caster):
+        super().cast(target, caster)
+        if caster.mana >= self.mana_cost:
             print(f"{target.name} is burned for {self.burn_duration} turns!")
 
-        def __str__(self):
-            return f"FireMagic(name={self.name}, damage={self.damage}, mana_cost={self.mana_cost}, burn_duration={self.burn_duration})"
+    def __str__(self):
+        return f"FireMagic(name={self.name}, damage={self.damage}, mana_cost={self.mana_cost}, burn_duration={self.burn_duration})"
         
-        class Firebolt(FireMagic):
-            def __init__(self, name, damage, mana_cost, burn_duration, range):
-                super().__init__(name, damage, mana_cost, burn_duration)
-                self.range = range
+class Firebolt(FireMagic):
+        def __init__(self, name, damage, mana_cost, burn_duration, range):
+            super().__init__(name, damage, mana_cost, burn_duration)
+            self.range = range
 
-            def cast(self, target, caster):
-                if caster.mana >= self.mana_cost:
-                    if target.distance <= self.range:
-                        super().cast(target, caster)
-                        print(f"{target.name} is within range!")
-                    else:
-                        print(f"{target.name} is out of range!")
+        def cast(self, target, caster):
+            if caster.mana >= self.mana_cost:
+                if target.distance <= self.range:
+                    super().cast(target, caster)
+                    print(f"{target.name} is within range!")
                 else:
-                    print(f"{caster.name} doesn't have enough mana to cast {self.name}!")
+                    print(f"{target.name} is out of range!")
+            else:
+                print(f"{caster.name} doesn't have enough mana to cast {self.name}!")
 
-            def __str__(self):
-                return f"Firebolt(name={self.name}, damage={self.damage}, mana_cost={self.mana_cost}, burn_duration={self.burn_duration}, range={self.range})"
+        def __str__(self):
+            return f"Firebolt(name={self.name}, damage={self.damage}, mana_cost={self.mana_cost}, burn_duration={self.burn_duration}, range={self.range})"
     
 class Melee:
     def __init__(self, name, damage, durability):
@@ -86,37 +86,22 @@ class Melee:
     def __str__(self):
         return f"Melee(name={self.name}, damage={self.damage}, durability={self.durability})"
     
-    class Sword(Melee):
-        def __init__(self, name, damage, durability, sharpness):
-            super().__init__(name, damage, durability)
-            self.sharpness = sharpness
+class Sword(Melee):
+    def __init__(self, name, damage, durability, sharpness):
+        super().__init__(name, damage, durability)
+        self.sharpness = sharpness
 
-        def strike(self, target):
-            if self.durability > 0:
-                target.health -= self.damage * self.sharpness
-                self.durability -= 1
-                print(f"{self.name} strikes {target.name} for {self.damage * self.sharpness} damage! Durability left: {self.durability}")
-            else:
-                print(f"{self.name} is broken and can't be used anymore!")
+    def strike(self, target):
+        if self.durability > 0:
+            target.health -= self.damage * self.sharpness
+            self.durability -= 1
+            print(f"{self.name} strikes {target.name} for {self.damage * self.sharpness} damage! Durability left: {self.durability}")
+        else:
+            print(f"{self.name} is broken and can't be used anymore!")
 
-        def __str__(self):
-            return f"Sword(name={self.name}, damage={self.damage}, durability={self.durability}, sharpness={self.sharpness})"
+    def __str__(self):
+        return f"Sword(name={self.name}, damage={self.damage}, durability={self.durability}, sharpness={self.sharpness})"
         
-        class GreatSword(Sword):
-            def __init__(self, name, damage, durability, sharpness, weight):
-                super().__init__(name, damage, durability, sharpness)
-                self.weight = weight
-
-            def strike(self, target):
-                if self.durability > 0:
-                    target.health -= self.damage * self.sharpness
-                    self.durability -= 1
-                    print(f"{self.name} strikes {target.name} for {self.damage * self.sharpness} damage! Durability left: {self.durability}")
-                    print(f"{self.name} is heavy and slows down {self.name}!")
-                else:
-                    print(f"{self.name} is broken and can't be used anymore!")
-
-            def __str__(self):
-                return f"GreatSword(name={self.name}, damage={self.damage}, durability={self.durability}, sharpness={self.sharpness}, weight={self.weight})"
+        
         
         
