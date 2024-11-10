@@ -17,11 +17,20 @@ class Ingredient:
 
     def __str__(self):
         return f"You have {self.amount} {self.name}."
-
+    
 
 class Spice(Ingredient):
     """Models a spice to flavor your food."""
 
     def grind(self):
         print(f"You have now {self.amount} of ground {self.name}.")
+    
+    def expire(self):
+        print(f"your {self.name} has expired. it's probably still good.")
+        self.name = "old " + self.name
+
+ingredient = Spice("tomatoes", 3)
+ingredient.expire()
+
+
 

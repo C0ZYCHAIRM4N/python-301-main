@@ -11,6 +11,7 @@
 #     contain? What methods? What should the child classes inherit as-is or overwrite?
 
 # 
+
 class Movie():
     def __init__(self, year, title):
         self.year = year
