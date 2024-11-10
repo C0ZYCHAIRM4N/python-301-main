@@ -7,5 +7,40 @@
 # Note: Feel free to integrate your custom Ingredient() and Soup() classes
 # into the code base, to get some additional practice in working with your
 # custom Python classes.
+import requests
+from bs4 import BeautifulSoup
 
-URL = "https://codingnomads.github.io/recipes"
+URL = "https://codingnomads.github.io/recipes/"
+page = requests.get(URL)
+soup = BeautifulSoup(page.content, "html.parser")
+
+def find_recipes_with_ingredient(ingredient):
+    links = soup.find_all("a")
+    matching_recipes = []
+    
+    for link in links:
+        if ingredient.lower() in link.text.lower():
+            matching_recipes.append(link)
+    
+    return matching_recipes
+
+# Ask for ingredient
+ingredient = input("Enter an ingredient: ").strip().lower()
+
+# Find recipes containing the ingredient
+matching_recipes = find_recipes_with_ingredient(ingredient)
+
+# Print recipes that contain the ingredient
+if matching_recipes:
+    print(f"Recipes containing '{ingredient}':")
+    for recipe in matching_recipes:
+        print(f"- {recipe.text}")
+        print(f"  Link: {recipe['href']}\n")
+else:
+    print(f"No recipes found containing '{ingredient}'.")
+
+
+
+
+
+

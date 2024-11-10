@@ -5,6 +5,7 @@
 # very common. head over to StackOverflow and find a solution!
 import requests
 
+
 url = 'https://codingnomads.co/'
 response = requests.get(url)
 print(response.text)
