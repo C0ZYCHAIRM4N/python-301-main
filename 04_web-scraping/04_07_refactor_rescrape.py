@@ -4,7 +4,7 @@
 # section of the course when you'll write tests for your web scraper.
 
 import requests
-
+from bs4 import BeautifulSoup
 
 def get_filtered_links(url):
     r = requests.get(url)
