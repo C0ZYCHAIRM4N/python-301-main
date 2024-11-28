@@ -11,18 +11,19 @@
 # `.html` page which allows you to also display the sprites of each Pokémon.
 # Check out the guides they provide: https://pokeapi-how.appspot.com/page5
 import requests
-import json
+from bs4 import BeautifulSoup
+
+# Use the Pokemon API at https://pokeapi.co/ to assemble a team of your
+URL = "https://pokeapi.co/api/v2/pokemon/"
+response = requests.get(URL)
+soup = BeautifulSoup(response.text, 'html.parser')
+six_pokemon = soup.find_all('a', href=True)
+print(six_pokemon)
 
 
 
-BASE_URL = 'https://pokeapi.co/api/v2/pokemon-species/aegislash'
-response = requests.get(BASE_URL)
 
-data = response.json()
-name = data['name']
-number = data['id']
-print(name)
-print(number)
+
 
 
 

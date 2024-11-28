@@ -4,3 +4,16 @@
 # data that you receive from both of them.
 # E.g.: You could use the Ghibli API to find all ghosts from their films, and
 #       create an opposing team of Ghost Pokémon from the Poke API.
+import json
+
+
+with open("ghibli.json", 'r') as f:
+    ghibli_data = json.load(f)
+print(ghibli_data)
+
+
+
+
+
+
+
