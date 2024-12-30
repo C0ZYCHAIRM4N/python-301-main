@@ -9,3 +9,22 @@
 #
 # You do not need to implement the actual functions after writing the tests 
 # but of course you can do that, too.
+
+# Step 1: Write a test for the functionality we want
+def test_add_numbers():
+    assert add_numbers(2, 3) == 5
+    assert add_numbers(-1, 1) == 0
+    assert add_numbers(0, 0) == 0
+
+
+# Write another test for edge cases or new functionality
+def test_add_numbers_with_negative():
+    assert add_numbers(-2, -3) == -5
+
+
+
+
+
+
+
+
