@@ -72,7 +72,7 @@ def test_main_loop(monkeypatch, capsys, html, expected_output):
             URL = f"BASE_URL/{r_link}"
             soup = make_soup(get_html_content(URL))
             author = get_author(soup)
-            recipe = get_recipe(soup)
+            recipe = get_recipe(soup) 
             print(f"({author})\t[{recipe}]\n\n\n")
 
     # Capture stdout
